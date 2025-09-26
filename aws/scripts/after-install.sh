@@ -8,5 +8,3 @@ aws s3 cp s3://test-webappdeploymentbucket-jovalhdbibun/SpringBootHelloWorldExam
 # Fix ownership
 chown -R tomcat:tomcat /usr/local/tomcat9/webapps
 
-# Restart Tomcat so it picks up the new WAR
-systemctl restart tomcat.service
