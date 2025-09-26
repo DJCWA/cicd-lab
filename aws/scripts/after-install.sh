@@ -1,11 +1,12 @@
 #!/bin/bash
 set -xe
 
+# Copy WAR file from S3 bucket to Tomcat webapps
+aws s3 cp s3://test-webappdeploymentbucket-jovalhdbibun/SpringBootHelloWorldExampleApplication.war \
+  /usr/local/tomcat9/webapps/SpringBootHelloWorldExampleApplication.war
 
-# Copy war file from S3 bucket to tomcat webapp folder
-aws s3 cp s3://test-webappdeploymentbucket-jovalhdbibun/ROOT.war /usr/local/tomcat9/webapps/ROOT.war
-
-# Ensure the ownership permissions are correct.
+# Fix ownership
 chown -R tomcat:tomcat /usr/local/tomcat9/webapps
 
-
+# Restart Tomcat so it picks up the new WAR
+systemctl restart tomcat.service
