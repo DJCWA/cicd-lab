@@ -9,4 +9,3 @@ aws s3 cp s3://test-webappdeploymentbucket-jovalhdbibun/SpringBootHelloWorldExam
 # Ensure the ownership permissions are correct.
 chown -R tomcat:tomcat /usr/local/tomcat9/webapps
 
-systemctl restart tomcat.service
